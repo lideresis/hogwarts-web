@@ -1,0 +1,16 @@
+/* Redimensionando logo da página de login */
+.login-logo{
+    height: auto;
+    width: 50%;
+    /* max-width: 100%; */
+    max-height: 360px;
+}
+
+/* Background default cinza */
+.bg-default{
+    background-color: #f5f5f5;
+}
+
+.card{
+    margin-bottom: 5%;
+}
