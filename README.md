@@ -20,7 +20,7 @@ O professor Dumbledore está precisando de um aplicativo para cadastrar todos os
 Você está disposto a ajudar?
 
 Desenhamos as telas para você se basear, este aplicativo deve ser desenvolvido utilizando as seguintes tecnologias:
-- PHP 7+ utilizando alguns dos frameworks (Slim 2+, Laravel 5+ ou CodeIgniter 3+)
+- PHP 7+ puro ou utilizando alguns dos frameworks (Slim 2+, Laravel 5+ ou CodeIgniter 3+)
 - MySQL para o Banco de Dados.
 - Front-end pode ser com bootstrap.
 - Será um diferencial, utilização de API REST.
