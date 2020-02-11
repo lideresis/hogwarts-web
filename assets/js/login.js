@@ -42,7 +42,6 @@ $(document).ready(function(){
                 });
             }
             else{
-                changeCSRF(resposta.responseJSON.csrf);
                 mensagem({
                     'mensagem': 'Erro inesperado ao tentar realizar login.',
                     'classe': 'danger'

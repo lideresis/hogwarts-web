@@ -52,7 +52,6 @@ class Login extends CI_Controller {
 		);
 
 		$this->form_validation->set_rules($config);
-
 		if ($this->form_validation->run() === FALSE){
 
 			$resposta = array(
@@ -103,8 +102,7 @@ class Login extends CI_Controller {
 	 * @param string $senha (post)
 	 * @return bool
 	 */
-	private function verificaLogin(string $email, string $senha)
-	{		
+	private function verificaLogin(string $email, string $senha){		
 		$this->load->model('LoginModel');
 		
 		if($info = $this->LoginModel->buscarInfoUsuario($email)){

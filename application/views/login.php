@@ -12,7 +12,6 @@
             </div>
             <form action="<?= site_url('Login/login');?>" method="post" id="form_login">
                 <div class="form-group col-md-12">
-                    <label for="email" class="col-lg-10 offset-lg-2 text-left">Email</label>
                     <div class="input-group offset-lg-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="prependEmail"><i class="fas fa-envelope-open"></i></span>
@@ -22,7 +21,6 @@
                     <span class="text-danger" id="email_erro_login"></span>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="senha" class="col-lg-10 offset-lg-2 text-left">Senha</label>
                     <div class="input-group offset-lg-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="prependPass"><i class="fas fa-lock-open"></i></span>

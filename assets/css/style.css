@@ -1,7 +1,7 @@
 /* Redimensionando logo da página de login */
 .login-logo{
     height: auto;
-    max-height: 280px;
+    max-height: 350px;
     width: 50% !important;
 }
 
