@@ -92,7 +92,7 @@ $autoload['drivers'] = array();
 
 //Adicionada importação automática de helper URL
 // Adicionada importação automática de helper com utilitários próprios
-$autoload['helper'] = array('url', 'utils_helper');  
+$autoload['helper'] = array('url');  
 
 /*
 | -------------------------------------------------------------------

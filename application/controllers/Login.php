@@ -5,9 +5,10 @@ class Login extends CI_Controller {
 	public function __construct(){
 		// Construtor do CI_Controller
 		parent::__construct(); 
-		if($this->session->userdata('logado') === TRUE){
-			//$this->session->set_flashdata('mensagem', $this->session->flashdata('mensagem'));
-			redirect('Bruxos');
+
+		//Caso esteja logado, redireciona para página principal 
+		if($this->session->login === TRUE){
+			redirect('Aluno');
 		}
 	}
 	
@@ -21,13 +22,12 @@ class Login extends CI_Controller {
 	 * Recebe formulário de login, valida campos e realiza login
 	 *
 	 * @access public
-	 * @version 1.0.0 - 08 de Janeiro de 2020
+	 * @version 1.0.0 - 08 de Fevereiro de 2020
 	 * @author Lucas Gehlen <contato.lucasgehlen@gmail.com>
 	 * @return void
 	 */
 	public function login(){
-		$post = limpaInput($this->input->post());
-
+		$post = $this->input->post();
 		$this->load->library('form_validation');
 
 		// Verificando se campos foram preenchidos adequadamente
@@ -54,7 +54,6 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules($config);
 
 		if ($this->form_validation->run() === FALSE){
-			// var_dump(form_error());
 
 			$resposta = array(
 				'email'          => form_error('email'),
@@ -68,22 +67,20 @@ class Login extends CI_Controller {
 		else{
 			// Caso o login seja possível
 			if($this->verificaLogin($post['email'], $post['senha'])){
-				$this->mensagem(
-					"Seja bem vindo, ". $this->session->nome . "!",
-					'success',
-					TRUE
-				);
-
+				$this->session->set_flashdata('mensagem', array(
+					'mensagem' => "Seja bem vindo, ". $this->session->nome . "!",
+					'classe' =>  'success'
+				));
+				
+				//Passando url de redirecionamento para o JS 	
 				$resposta = array(
-					'sucesso' => TRUE,
-					'url'     => base_url('Inicio')
+					'url'     => site_url('Usuario')
 				);
 			}
 			else{
-				$mensagem = $this->mensagem(
-					'Credenciais informadas estão erradas!', 
-					'danger', 
-					TRUE
+				$resposta = array(
+					'mensagem' => 'Credenciais informadas estão erradas!',
+					'classe' => 'danger'
 				);
 				$this->output->set_status_header(401);
 			}
@@ -100,31 +97,30 @@ class Login extends CI_Controller {
 	 * Inicializa a sessão com as informações do usuário
 	 *
 	 * @access private
-	 * @version 1.0.0 - 08 de Janeiro de 2020
+	 * @version 1.0.0 - 08 de Fevereiro de 2020
 	 * @author Lucas Gehlen <contato.lucasgehlen@gmail.com>
-	 * @param string $email e-mail (post)
+	 * @param string $email (post)
 	 * @param string $senha (post)
 	 * @return bool
 	 */
 	private function verificaLogin(string $email, string $senha)
 	{		
 		$this->load->model('LoginModel');
-
-		if($info = $this->LoginModel->buscarInfo($email)){
-			if(password_verify($senha, $info['senha'])){
-				$this->session->set_userdata('idUsuario', $info['idUsuario']);
-				$this->session->set_userdata('email', $info['email']);
-				$this->session->set_userdata('nome', $info['nome']);
-				$this->session->set_userdata('especialidade', $info['especialidade']);
-				$this->session->set_userdata('login', TRUE);
-				return TRUE;
+		
+		if($info = $this->LoginModel->buscarInfoUsuario($email)){
+			if(count($info) > 0){
+				if(password_verify($senha, $info['senha'])){
+					$this->session->set_userdata('idusuario', $info['idusuario']);
+					$this->session->set_userdata('email', $info['email']);
+					$this->session->set_userdata('nome', $info['nome']);
+					$this->session->set_userdata('login', TRUE);
+					return TRUE;
+				}
+				else{	
+					return FALSE;
+				}
 			}
 		}
 		return FALSE;
 	}
-
-	public function mensagem(){
-		// 
-	}
-
 }

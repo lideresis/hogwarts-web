@@ -17,7 +17,7 @@ class LoginModel extends CI_Model{
      * @param string $email
      * @return mixed
      */
-    public function buscarInfo(string $email){
+    public function buscarInfoUsuario(string $email){
         try{
             $info = $this->db->where('email', strtolower($email))->get('usuario');
             return $info->row_array(); //Retornando uma única linha

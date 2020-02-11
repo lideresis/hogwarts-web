@@ -1,9 +1,7 @@
 /* Redimensionando logo da página de login */
 .login-logo{
     height: auto;
-    width: 50%;
-    /* max-width: 100%; */
-    max-height: 360px;
+    width: 50% !important;
 }
 
 .navbar-logo{
@@ -21,8 +19,61 @@
     margin-bottom: 5%;
 }
 
-@media only screen and (max-width: 959px) {
+.margin-top{
+    margin-top: 5px;
+}
+
+.margin-bottom{
+    bottom: 35px;
+}
+.horizontal-container{
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.loader{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    position: absolute;
+    z-index: 50000;
+    display: flex;
+    align-items: center;
+}
+.text-small{
+    font-size: 11px;
+}
+
+@media only screen and (max-width: 1000px) {
+    html{
+        min-width: 100%;
+        max-width: 100% !important;
+        margin: 0 auto;
+        text-align: center;
+        display:block;
+        table-layout: fixed
+    }
+    table {
+        width: 100%;
+        table-layout: fixed;
+      }
     .navbar-logo{
         max-width: 20% !important;
+    }
+    .input-group-prepend{
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    table {
+        font-size:9px;
+      }
+}
+
+@media only screen and (max-width: 400px) {
+    table {
+        font-size:6px;
     }
 }
