@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
     // Alterando link selecionado na navbar
     $(".nav li").removeClass("active");
     $('#nav_usuario').addClass('active');
@@ -102,6 +102,7 @@ $(document).ready(function(){
             $('#btn_filtrar').trigger('click');
         })
         .fail(function (resposta) {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
             if (resposta.status === 400 || resposta.status === 500 || resposta.status === 502) {
                 $('#inserir_nome_erro').html( resposta.responseJSON['nome'] || '');
                 $('#inserir_email_erro').html( resposta.responseJSON['email'] || '');
@@ -152,6 +153,7 @@ $(document).ready(function(){
         })
         .fail(function (resposta) {
             loader();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
             if (resposta.status === 400 || resposta.status === 500 || resposta.status === 502) {
                 $('#editar_nome_erro').html( resposta.responseJSON['nome'] || '');
                 $('#editar_email_erro').html( resposta.responseJSON['email'] || '');
@@ -201,6 +203,7 @@ $(document).ready(function(){
             $('#btn_filtrar').trigger('click');
         })
         .fail(function (resposta) {
+            loader();
             if (resposta.status === 400 || resposta.status === 500 || resposta.status === 502) {
                 if (!!resposta.responseJSON.mensagem)
                     mensagem(JSON.parse(resposta.responseJSON.mensagem));            

@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 	public function index(){
 		$this->load->view('layout/header');
 		$this->load->view('login');
-		$this->load->view('layout/footer');
+		//$this->load->view('layout/footer');
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Login extends CI_Controller {
 				
 				//Passando url de redirecionamento para o JS 	
 				$resposta = array(
-					'url'     => site_url('Usuario')
+					'url'     => site_url('Aluno')
 				);
 			}
 			else{

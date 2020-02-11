@@ -16,13 +16,12 @@ $(document).ready(function(){
             method: $(this).attr('method'),
             data: $(this).serialize()
         }).done(function (resposta) {
-            //console.log(resposta);
             loader();
-            //Se credenciais forem bem-sucedidas, redireciona
             window.location.replace(resposta.url); 
         })
         .fail(function(resposta){
             loader();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
             //400 - Bad Request.
             //401 - Unauthorize Access. 
             if(resposta.status === 400 || resposta.status === 401){  

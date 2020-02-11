@@ -56,16 +56,12 @@ class Usuario extends CI_Controller {
 			$consulta_like['nome'] = mb_strtoupper($post['nome']);
 		}
 
-		if(isset($post['especialidade']) && !!$post['especialidade']){
-			$consulta_like['especialidade'] = mb_strtoupper($post['especialidade']);
+		if(isset($post['email']) && !!$post['email']){
+			$consulta_like['email'] = $post['email'];
 		}
 
 		if(isset($post['status']) && is_numeric($post['status'])){
 			$consulta_where['status'] = $post['status'];
-		}
-
-		if(isset($post['casa']) &&  is_numeric($post['casa'])){
-			$consulta_where['casa'] = $post['casa'];	
 		}
 
 		if($dados['usuarios'] = $this->UsuarioModel->buscarUsuario($consulta_where, $consulta_like)){
