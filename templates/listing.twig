@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>Hogwarts School</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <img width="10%" src="https://i.pinimg.com/originals/0a/41/0e/0a410e3a4f03610eed0dbbbcd2f0a3db.png" alt="Hogwarts Logo">
+		<form method="get" action="logout" style="padding-left: 60%">	
+			<div class="form-group">
+		        {{ user_name }} {{ user_email }}
+				<button type="submit" id="logout" class="btn btn-default center">Sair</button>
+			</div>
+		</form>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+				<form method="post" name="userForm" id="userForm" action="add">	
+					<div class="form-group">
+						<button type="submit" id="add" class="btn btn-default center">Novo Bruxo</button>
+					</div>
+				</form>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="main">
+          <p style="font-size: 20px;">Listagem de Bruxos</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+			        <th>Bruxo</th>
+			        <th>Especialidade</th>
+			        <th>Idade</th>
+			        <th>Status</th>
+			        <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+		    	    {% for item in listagem_alunos %}
+				      <tr>
+				        <td>{{ item.name }}</td>
+				        <td>{{ item.especialidade }}</td>
+				        <td>{{ item.idade }}</td>
+				        <td>{{ item.status }}</td>
+				        <td width="200">
+				        	<form method="post" name="userForm" id="userForm" action="edit" style="float:left;">
+								<input type="hidden" id="id" name="id" value="{{ item.id }}"> 
+									<button type="submit" class="btn btn-default">Editar</button>
+							</form>
+				        	<form method="post" name="userForm" id="userForm" action="delete" style="float:right;">
+								<input type="hidden" id="id" name="id" value="{{ item.id }}"> 
+									<button type="submit" class="btn btn-defautl">Excluir</button>
+							</form>
+						</td>
+				      </tr>
+				    {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
