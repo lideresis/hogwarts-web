@@ -3,7 +3,7 @@ Requerimentos e orientações para rodar a aplicação
 
 
 
-1 - Instalar o PHP. 
+1 - Instalar o PHP. </ br>
 1.1 - Instação e configuração do PHP para Windows 10. Conforme orientação em https://blog.schoolofnet.com/como-instalar-o-php-no-windows-do-jeito-certo-e-usar-o-servidor-embutido/. Lembrar de referenciar o PHP em Painel de Controle -> Sistema e Segurança -> Sistema -> Configurações avançadas do sistema. Adicionar a variável PATH o caminho C:\php. Assim é possivel rodar a aplicação usando o servidor embutido no PHP executanto um script diretamente no terminal.
 
 2 - Instalar o MySQL.
