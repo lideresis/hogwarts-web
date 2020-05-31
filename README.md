@@ -71,7 +71,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `users`
+-- Extraindo dados da tabela `users` A senha é um HASH MD5. Para testes o HASH gerado corresponde a senha 1234.
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `created_at`, `updated_at`, `is_admin`, `especialidade`, `idade`, `status`, `email`) VALUES
