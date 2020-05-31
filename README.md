@@ -84,5 +84,5 @@ INSERT INTO `users` (`id`, `name`, `password`, `created_at`, `updated_at`, `is_a
 --
 
 1 - O Slim Framework permite abstrair todas as camadas do prjeto, adotando a arquitetura MVC (Model - View - Controller) que é um padrão adotado pela indústria de desenvolvimento e que tem diminuido a complexidade na criação de soluções web.
-1.1 - O arquivo index.php é o primeiro a ser carregado pelo servidor. Ele carrega o carquivo bootstrap/app.php que contêm basicamente as configurações iniciar para que a aplicação rode: Credenciais de acesso ao banco de dados, Configurações do ORM (Mapeamento Objeto Relacional - no caso é utilizado o Laravel Eloquent ORM - https://laravel.com/docs/7.x/eloquent), Twig template para permitir a manipulação e uso de lógica antes da renderização de conteúdo HTML. Mapeamento de rotas para classes, métodos e templates.
+1.1 - O arquivo index.php é o primeiro a ser carregado pelo servidor. Ele carrega o carquivo bootstrap/app.php que contêm basicamente as configurações iniciais para que a aplicação rode: Credenciais de acesso ao banco de dados, Configurações do ORM (Mapeamento Objeto Relacional - no caso é utilizado o Laravel Eloquent ORM - https://laravel.com/docs/7.x/eloquent), Twig template para permitir a manipulação e uso de lógica antes da renderização de conteúdo HTML. Mapeamento de rotas para classes, métodos e templates.
 
