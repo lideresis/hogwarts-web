@@ -83,6 +83,26 @@ INSERT INTO `users` (`id`, `name`, `password`, `created_at`, `updated_at`, `is_a
 -- Entendendo a estrutura do projeto
 --
 
-1 - O Slim Framework permite abstrair todas as camadas do prjeto, adotando a arquitetura MVC (Model - View - Controller) que é um padrão adotado pela indústria de desenvolvimento e que tem diminuido a complexidade na criação de soluções web.
+1 - O Slim Framework permite abstrair todas as camadas do projeto, adotando a arquitetura MVC (Model - View - Controller) que é um padrão adotado pela indústria de desenvolvimento e que tem diminuido a complexidade na criação de soluções web.
 1.1 - O arquivo index.php é o primeiro a ser carregado pelo servidor. Ele carrega o carquivo bootstrap/app.php que contêm basicamente as configurações iniciais para que a aplicação rode: Credenciais de acesso ao banco de dados, Configurações do ORM (Mapeamento Objeto Relacional - no caso é utilizado o Laravel Eloquent ORM - https://laravel.com/docs/7.x/eloquent), Twig template para permitir a manipulação e uso de lógica antes da renderização de conteúdo HTML. Mapeamento de rotas para classes, métodos e templates.
+1.1.1 - No projeto, apenas um controlador é usado (LoginController), mas o ideal é criar mais um controlador para gerenciar as operações de CRUD do usuário: UserController. Para controle de acesso administrativo foi adicionado o campo is_admin ao modelo e ao banco de dados, dessa forma apenas usuários administradores têm acesso às operações de CRUD (Criação, Consulta, Atualização, Destruição).
+1.1.2 - Em bootstrap/app.php também foi adicionado o caminho das rotas para acesso a cada um dos métodos usados pelo projeto:
+
+          // página inicial - index.php
+          $app->get('/', 'LoginController:index');
+
+          // Login do usuário
+          $app->post('/checkUser', 'LoginController:checkUser');
+
+          // Destruição das variávies de sessão e redirecionamento a página de login.
+          $app->get('/logout', 'LoginController:logout');
+
+          // Cadastro de novos bruxos.
+          $app->post('/add', 'LoginController:add');
+
+          // Edição de bruxos.
+          $app->post('/edit', 'LoginController:edit');
+
+          // Exclusão de bruxos
+          $app->post('/delete', 'LoginController:delete');
 
