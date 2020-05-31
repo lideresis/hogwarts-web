@@ -124,3 +124,13 @@ INSERT INTO `users` (`id`, `name`, `password`, `created_at`, `updated_at`, `is_a
 		          'status',
 	        ];
         }
+
+2 - Lógica para carregamento dos templates.
+2.1 - A página carregada após o login é a listing.twig, que carrega as bibliotecas do Bootstrap para adição de elementos visuais e responsividade ao conteúdo HTML. Contêm o escopo principal de navegação da aplicação - onde parte a navegação para todas as funcionalidades. Essa tela exibe o botão Adicionar Bruxo, o botão Sair, os dados do usuário logado (Nome, email) e as operações de edição e exclusão para cada um dos usuários listados. 
+2.2 - A ediçao e a criação de bruxos é carregada em um nova página, redirecionando para a listagem após o sucesso da operação.
+
+--
+-- Pontos a serem melhorados nos próximos commits. Análise.
+--
+
+3 - Existem pontos a serem melhorados no projeto. Exemplo: operações de exclusão devem exibir mensagem de confirmação, o carregamento de todas as operações poderiam ser feitos na mesma página em listing.twig. Ao invés de carregar cada página separadamente, exigindo o processamento por parte do controlador, os botões de adição e edição poderiam conter um <a href="#adicionar">Adicionar Bruxo</a> capaz de remover a invisibilidade do conteúdo do formulário utilizando lógica em Jquery (ou JavaScript). Assim, removendo <div style=“display:none”> que contém o formulário como uso de Jquery  $( "#adicionar" ).show() , permitindo que o formulário seja exibido, e que o conteúdo seja escondido novamente em uma operação de cancelamento ou redirecionamento: $( "#adicionar" ).hide(). Nesse contexto, o foco seria dado ao frontend, evitando processamentos desnecessários no servidor.
