@@ -105,4 +105,22 @@ INSERT INTO `users` (`id`, `name`, `password`, `created_at`, `updated_at`, `is_a
 
           // Exclusão de bruxos
           $app->post('/delete', 'LoginController:delete');
+          
+ 1.1.3 - Modelo User - utilizado pelo Laravel Eloquent ORM. Nem todas as colunas do banco foram mapeadas para o modelo, pois ainda não estão sendo usadas pelo ORM (Ainda não existe controle administrativo no escopo do projeto).
+ 
+        namespace Src\Models;
 
+        use Illuminate\Database\Eloquent\Model;
+
+        class User extends Model
+        {
+	        protected $table = 'users';
+	
+	        protected $fillable = [
+		          'name',
+		          'password',
+		          'especialidade',
+		          'idade',
+		          'status',
+	        ];
+        }
