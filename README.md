@@ -20,11 +20,12 @@ O professor Dumbledore está precisando de um aplicativo para cadastrar todos os
 Você está disposto a ajudar?
 
 Desenhamos as telas para você se basear, este aplicativo deve ser desenvolvido utilizando as seguintes tecnologias:
-Para o Front-End:
+#### Para o Front-End:
 - React JS
-Para o Back-end:
-- Banco de Dados: Pode utilizar qualquer um de sua preferência.
-- API Rest construída em NodeJS, podendo utilizar algum framework: NestJS, ExpressJS, Adonis, etc.
+#### Para o Back-end:
+- Banco de Dados: Podes utilizar qualquer um de sua preferência;
+- Utilizar ORM;
+- API Rest construída em NodeJS, utilizando algum framework: NestJS, ExpressJS, Adonis, etc.
 
 ## Tela de Login
 
