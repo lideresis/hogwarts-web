@@ -1,0 +1,40 @@
+{
+  "name": "hogwarts-web",
+  "version": "1.0.0",
+  "description": "A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.",
+  "main": "index.js",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "axios": "^0.20.0",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "react-tiny-popover": "^6.0.0-beta.2",
+    "redux": "^4.0.5",
+    "tailwindcss": "^1.8.10"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3"
+  },
+  "scripts": {
+    "build:tailwind": "tailwindcss build src/styles/tailwind/tailwind.css -o src/styles/tailwind/tailwind.output.css",
+    "prestart": "npm run build:tailwind",
+    "prebuild": "npm run build:tailwind",
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieltobi/hogwarts-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrieltobi/hogwarts-web/issues"
+  },
+  "homepage": "https://github.com/gabrieltobi/hogwarts-web#readme"
+}
