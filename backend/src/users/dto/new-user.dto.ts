@@ -1,14 +1,8 @@
-import {
-  IsDefined,
-  IsNotEmpty,
-  MinLength,
-  Validate,
-
-} from 'class-validator';
+import { IsDefined, IsNotEmpty, MinLength, Validate } from 'class-validator';
 import * as bcrypt from 'bcryptjs';
 
 import { IsUserAlreadyExist } from '../user.validator';
-import { User } from '../user.entity'
+import { User } from '../user.entity';
 
 export class NewUser implements Readonly<NewUser> {
   @IsDefined()

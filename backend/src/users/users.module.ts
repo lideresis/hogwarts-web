@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { IsUserAlreadyExist } from './user.validator';
 import { UsersController } from './users.controller';
-import { User } from './user.entity'
+import { User } from './user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({

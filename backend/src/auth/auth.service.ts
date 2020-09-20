@@ -2,21 +2,23 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 
-import { User } from '../users/user.entity'
+import { User } from '../users/user.entity';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UsersService,
-    private jwtService: JwtService
+    private jwtService: JwtService,
   ) {}
 
   async verifyPayload(payload: JwtPayload): Promise<User> {
     let user: User;
 
     try {
-      user = await this.usersService.findOne({ where: { username: payload.sub } });
+      user = await this.usersService.findOne({
+        where: { username: payload.sub },
+      });
     } catch (error) {
       throw new UnauthorizedException(
         `There isn't any user with username: ${payload.sub}`,
