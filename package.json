@@ -21,10 +21,10 @@
     "babel-core": "^6.26.3"
   },
   "scripts": {
-    "build:tailwind": "tailwindcss build src/styles/tailwind/tailwind.css -o src/styles/tailwind/tailwind.output.css",
+    "build:tailwind": "tailwindcss build front/styles/tailwind/tailwind.css -o front/styles/tailwind/tailwind.output.css",
     "prestart": "npm run build:tailwind",
     "prebuild": "npm run build:tailwind",
-    "start": "parcel src/index.html",
+    "start": "parcel front/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
