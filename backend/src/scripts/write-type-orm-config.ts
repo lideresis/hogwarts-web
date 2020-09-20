@@ -1,4 +1,4 @@
-import { configService } from '../src/config/config.service';
+import { configService } from '../config/config.service';
 import fs = require('fs');
 
 if(fs.existsSync('ormconfig.json')) {

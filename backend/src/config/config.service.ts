@@ -1,18 +1,20 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-import dotenv from "dotenv";
-dotenv.config();
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('dotenv').config();
 
 class ConfigService {
   readonly appName: string;
   readonly appPort: number;
   readonly appEnv: string;
+  readonly appKey: string;
   readonly typeOrmConfig: TypeOrmModuleOptions;
 
   constructor(private env: { [k: string]: string | undefined }) {
     this.appName = this.getValue('APP_NAME', 'Hogwarts');
     this.appPort = parseInt(this.getValue('APP_PORT', '3001'));
     this.appEnv = this.getValue('APP_ENV', 'DEV').toUpperCase();
+    this.appKey = this.getValue('APP_KEY', 'INSECUREKEY');
     this.typeOrmConfig = this.setTypeOrmConfig();
   }
 
@@ -38,6 +40,7 @@ class ConfigService {
   private setTypeOrmConfig(): TypeOrmModuleOptions {
     return {
       type: 'mysql',
+      autoLoadEntities: true,
 
       host: this.getValue('DB_HOST', '127.0.0.1'),
       port: parseInt(this.getValue('DB_PORT', '3306')),
@@ -45,8 +48,8 @@ class ConfigService {
       password: this.getValue('DB_PASSWORD', 'root'),
       database: this.getValue('DB_DATABASE', 'hogwarts'),
 
-      entities: ['dist/src/models/*.entity{.ts,.js}'],
-      migrations: ['src/migrations/*.ts'],
+      entities: ['dist/**/*.entity.{ts,js}'],
+      migrations: ['dist/migrations/*.{ts,js}'],
 
       migrationsTableName: 'migrations',
 
