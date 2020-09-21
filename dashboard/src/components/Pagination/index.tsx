@@ -66,15 +66,11 @@ const Pagination = ({meta, page, setPage} : {meta: PaginatedMeta, page: number, 
           { buttons && meta.totalPages > 1 ? (
             <PaginationNav>
               <ul>
-                {Object.values(buttons).map((item:PaginationButtonType, index:number) => (
-                  <>
-                    { index !== Object.keys(buttons).length - 1 || (index === Object.keys(buttons).length - 1 && meta.totalPages > 2) ? (
-                      <>
-                        <li key={index}><PaginationButton data-status={item.status} onClick={() => setParentPage(item.page)}>{item.text}</PaginationButton></li>
-                      </>
-                    ) : ( null ) }
-                  </>
-                ))}
+                {Object.values(buttons).map((item:PaginationButtonType, index:number) =>
+                  index !== Object.keys(buttons).length - 1 || (index === Object.keys(buttons).length - 1 && meta.totalPages > 2) ? 
+                    <li key={index}><PaginationButton data-status={item.status} onClick={() => setParentPage(item.page)}>{item.text}</PaginationButton></li>
+                  : ( null )
+                )}
               </ul>
             </PaginationNav>
           ) : ( null ) }
