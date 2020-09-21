@@ -1,3 +1,4 @@
-.cache/
-dist/
 node_modules/
+
+front/.cache/
+front/dist/
