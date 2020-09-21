@@ -1,8 +1,10 @@
 const LOGIN = 'LOGIN'
 const LOGOUT = 'LOGOUT'
 
+const userJson = localStorage.getItem('user')
+
 const initialState = {
-    user: null
+    user: (userJson ? JSON.parse(userJson) : null)
 }
 
 export default (state = initialState, action) => {
@@ -10,7 +12,7 @@ export default (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state,
-                user: {}
+                user: action.payload
             }
         case LOGOUT:
             return {
@@ -22,8 +24,9 @@ export default (state = initialState, action) => {
     }
 }
 
-export const login = () => ({
-    type: LOGIN
+export const login = (payload) => ({
+    type: LOGIN,
+    payload
 })
 
 export const logout = () => ({

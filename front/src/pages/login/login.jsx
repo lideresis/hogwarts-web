@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+import { Formik, Form, Field } from 'formik'
+import { toast } from 'react-toastify'
 
 import logo from '/assets/images/logo.png'
 
@@ -14,9 +17,17 @@ function Login (props) {
 
     const history = useHistory()
 
-    const doLogin = (evt) => {
-        evt.preventDefault()
-        login()
+    const doLogin = async (values, { setSubmitting }) => {
+        const { data } = await axios.post('http://127.0.0.1:3333/login', values)
+
+        if (data.error) {
+            toast.error(data.error)
+        } else {
+            localStorage.setItem('user', JSON.stringify(data))
+            login(data)
+        }
+
+        setSubmitting(false)
     }
 
     useEffect(() => {
@@ -25,40 +36,66 @@ function Login (props) {
         }
     }, [user])
 
+    useEffect(() => {
+        const userJson = localStorage.getItem('user')
+
+        if (userJson) {
+            login(JSON.parse(userJson))
+        }
+    }, [])
+
     return (
         <div className='flex-1 flex flex-col items-center justify-center'>
             <img src={logo} className='h-56' alt='Logo da Escola' />
 
             <span className='font-bold p-4 mb-2'>Hogwarts School</span>
 
-            <form onSubmit={doLogin}>
-                <div className='mb-4'>
-                    <label className='block font-bold mb-1' htmlFor='login'>Login</label>
-                    <input
-                        type='text'
-                        className='border rounded py-2 px-3 w-64 leading-tight border-gray-500'
-                        id='login'
-                    />
-                </div>
+            <Formik
+                initialValues={{ email: '', senha: '' }}
+                onSubmit={doLogin}
+            >
+                {({ isSubmitting }) => (
+                    <Form>
+                        <Field type="email" name="email" >
+                            {({ field }) => (
+                                <div className='mb-4'>
+                                    <label className='block font-bold mb-1' htmlFor='login'>Login</label>
+                                    <input
+                                        type='text'
+                                        className='border rounded py-2 px-3 w-64 leading-tight border-gray-500'
+                                        id='login'
+                                        {...field}
+                                    />
+                                </div>
+                            )}
+                        </Field>
 
-                <div className='mb-6'>
-                    <label className='block font-bold mb-1' htmlFor='senha'>Senha</label>
-                    <input
-                        type='password'
-                        className='border rounded py-2 px-3 w-64 leading-tight border-gray-500'
-                        id='senha'
-                    />
-                </div>
+                        <Field type="password" name="senha">
+                            {({ field }) => (
+                                <div className='mb-6'>
+                                    <label className='block font-bold mb-1' htmlFor='senha'>Senha</label>
+                                    <input
+                                        type='password'
+                                        className='border rounded py-2 px-3 w-64 leading-tight border-gray-500'
+                                        id='senha'
+                                        {...field}
+                                    />
+                                </div>
+                            )}
+                        </Field>
 
-                <div className='text-center'>
-                    <button
-                        type='submit'
-                        className='bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4'
-                    >
-                        Entrar
-                    </button>
-                </div>
-            </form>
+                        <div className='text-center'>
+                            <button
+                                type='submit'
+                                className={`bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 ${isSubmitting ? 'opacity-50' : ''}`}
+                                disabled={isSubmitting}
+                            >
+                                Entrar
+                            </button>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
         </div>
     )
 }

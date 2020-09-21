@@ -9,7 +9,7 @@ export default function Routes () {
     return (
         <Switch>
             <Route path='/wizard/list' component={WizardList} />
-            <Route path='/wizard/add' component={WizardAdd} />
+            <Route path='/wizard/add/:id?' component={WizardAdd} />
             <Route path='/login' component={Login} />
             <Redirect exact from='/' to='login' />
         </Switch>

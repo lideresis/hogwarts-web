@@ -24,6 +24,7 @@ function Header (props) {
 
     const doLogout = () => {
         setIsPopoverOpen(false)
+        localStorage.setItem('user', null)
         logout()
     }
 
@@ -44,8 +45,10 @@ function Header (props) {
     const renderPopover = () => {
         return (
             <div className='bg-white border-2 border-gray-600 flex flex-col p-4'>
-                <h6 className='font-bold text-lg'>Dumbledore</h6>
-                <span className='text-sm mb-4'>dumbledore@hogwarts.school</span>
+                {user && <React.Fragment>
+                    <h6 className='font-bold text-lg'>{user.nome}</h6>
+                    <span className='text-sm mb-4'>{user.email}</span>
+                </React.Fragment>}
 
                 <button
                     className='bg-gray-700 hover:bg-gray-800 text-white font-bold p-1 w-24 text-center'
