@@ -21,7 +21,7 @@ import { NewWizard } from './dto/new-wizard.dto';
 import { UpdateWizard } from './dto/update-wizard.dto';
 
 @Controller('wizard')
-@UseGuards(JwtAuthGuard)
+//@UseGuards(JwtAuthGuard)
 export class WizardController {
   constructor(private readonly wizardService: WizardService) {}
 
