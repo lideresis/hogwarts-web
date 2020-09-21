@@ -1,3 +1,6 @@
 export type PanelProps = {
-  children: JSX.Element[] | JSX.Element
+
+export type MessageProps = {
+  message: string | undefined,
+  type?: "default" | "info" | "success" | "alert" | "warning" | undefined
 }
