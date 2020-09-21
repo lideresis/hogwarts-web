@@ -11,9 +11,9 @@ const Pagination = ({meta, page, setPage} : {meta: PaginatedMeta, page: number, 
   // Set page number variables
   useEffect(() => {
     setPages({
-      first: page === 1 ? 1 : ( page > 2 && page >= meta.totalPages ? page - 2 : page - 1 ),
-      second: page > 1 && ( page < meta.totalPages || page === 2 ) ? page : (page === meta.totalPages ? page - 1 : page + 1),
-      third: page === meta.totalPages ? page : ( page === 1 ? 3 : page + 1 )
+      first: +page === 1 ? 1 : ( +page > 2 && +page >= meta.totalPages ? +page - 2 : +page - 1 ),
+      second: +page > 1 && ( +page < meta.totalPages || +page === 2 ) ? +page : (+page === meta.totalPages ? +page - 1 : +page + 1),
+      third: +page === meta.totalPages ? +page : ( +page === 1 ? 3 : +page + 1 )
     });
   }, [page, meta]);
 
@@ -29,17 +29,17 @@ const Pagination = ({meta, page, setPage} : {meta: PaginatedMeta, page: number, 
         first: {
           text: (pages.first).toString(),
           page: pages.first,
-          status: pages.first === page ? 'active' : 'default'
+          status: pages.first === +page ? 'active' : 'default'
         },
         second: {
           text: (pages.second).toString(),
           page: pages.second,
-          status: pages.second === page ? 'active' : 'default'
+          status: pages.second === +page ? 'active' : 'default'
         },
         third: {
           text: (pages.third).toString(),
           page: pages.third,
-          status: pages.third === page ? 'active' : 'default'
+          status: pages.third === +page ? 'active' : 'default'
         },
         end: {
           text: '>',
@@ -51,6 +51,12 @@ const Pagination = ({meta, page, setPage} : {meta: PaginatedMeta, page: number, 
       setIsMounted(true);
     }
   }, [pages, meta, page]);
+
+  const setParentPage = (toPage: number) => {
+    if (toPage !== page) {   
+      setPage(toPage)
+    }
+  }
 
   return (
     <>
@@ -64,7 +70,7 @@ const Pagination = ({meta, page, setPage} : {meta: PaginatedMeta, page: number, 
                   <>
                     { index !== Object.keys(buttons).length - 1 || (index === Object.keys(buttons).length - 1 && meta.totalPages > 2) ? (
                       <>
-                        <li key={index}><PaginationButton data-status={item.status} onClick={() => setPage(item.page)}>{item.text}</PaginationButton></li>
+                        <li key={index}><PaginationButton data-status={item.status} onClick={() => setParentPage(item.page)}>{item.text}</PaginationButton></li>
                       </>
                     ) : ( null ) }
                   </>
