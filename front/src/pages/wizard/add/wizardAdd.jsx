@@ -11,7 +11,7 @@ export default function WizardAdd () {
         nome: '',
         idade: 0,
         especialidade: '',
-        ativo: 0
+        ativo: false
     })
 
     const { id } = useParams()
@@ -23,7 +23,10 @@ export default function WizardAdd () {
         if (!data) {
             history.replace('/wizard/list')
         } else {
-            setInitialValues(data)
+            setInitialValues({
+                ...data,
+                ativo: !!data.ativo
+            })
         }
     }
 
@@ -54,7 +57,7 @@ export default function WizardAdd () {
                 onSubmit={submit}
                 enableReinitialize
             >
-                {({ isSubmitting }) => (
+                {({ isSubmitting, setFieldValue }) => (
                     <Form className='p-4'>
                         <div className='mb-4 border-2 border-gray-600 p-4'>
                             <Field type="text" name="nome" >
@@ -99,10 +102,15 @@ export default function WizardAdd () {
                                 )}
                             </Field>
 
-                            <Field type="checkbox" name="ativo" >
+                            <Field name="ativo">
                                 {({ field }) => (
                                     <label className='block font-bold'>
-                                        <input className='mr-2 leading-tight' type='checkbox' {...field} />
+                                        <input
+                                            type='checkbox'
+                                            className='mr-2 leading-tight'
+                                            checked={field.value}
+                                            onChange={() => setFieldValue('ativo', !field.value)}
+                                        />
                                         <span>Ativo</span>
                                     </label>
                                 )}
