@@ -1,20 +1,35 @@
 
 # Desafio de programação - Hogwarts
 
-A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
+A idéia deste desafio é permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis, para a _Lidere Sistemas_.
 
-## Instruções de entrega do desafio
+## Configuração do Ambiente
 
-1. Faça um fork deste projeto para sua conta do github (crie uma se você não possuir).
-2. Em seguida, implemente o projeto tal qual descrito abaixo, em seu próprio fork.
-3. Por fim, empurre todas as suas alterações para o seu fork no Github e envie um pull request para este repositório original.
+A configuração do ambiente é razoavelmente simples. Começa por ter um servidor web com MySQL instalado, podendo ser utilizado, por exemplo, o [MAMP](https://www.mamp.info/en/downloads/).
 
-## Instruções alternativas de entrega do desafio (caso você não queira que sua submissão seja pública)
-1. Faça um clone deste repositório.
-2. Em seguida, implemente o projeto tal qual descrito abaixo, em seu clone local.
-3. Por fim, envie via email um arquivo patch para seu contato na Lidere Sistemas. 
+Após habilitar seu servidor, faça um clone deste repositório, importando em seguida o arquivo _"dump.sql"_ no seu gerenciador de banco de dados.
+
+Altere no arquivo _"back/.env"_ o _DB_USER_ e o _DB_PASSWORD_ para o usuário e senha respectivamente utilizados no seu banco de dados.
+
+Através do terminal, execute na pasta _"back"_ e depois na pasta _"front"_:
+```
+$ npm i
+```
+
+Após isso, em 2 abas diferentes do terminal, execute novamente nas pastas _"back"_ e _"front"_:
+```
+$ npm start
+```
+
+Pronto, agora através da URL http://localhost:1234 você já pode navegar e efetuar os testes!
+
+### Usuário para teste:
+
+ - Login: dumbledore@hogwarts.school
+ - Senha: abc123
 
 ## Descrição do Projeto
+
 O professor Dumbledore está precisando de um aplicativo para cadastrar todos os seus bruxo-alunos!
 
 Você está disposto a ajudar?
@@ -38,20 +53,3 @@ Desenhamos as telas para você se basear, este aplicativo deve ser desenvolvido 
 ## Formulário
 
 ![web-bruxo](WEB-BRUXO.png)
-
-
-### Avaliação
-Seu projeto será avaliado de acordo com os seguintes critérios:
-1. Sua aplicação preenche os requerimentos básicos?
-2. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
-3. Você seguiu as instruções de envio do desafio?
-
-### Avaliação Pontual
-Pontualmente estaremos avaliando:
-
-1. Entendimento sobre a linguagem utilizada.
-2. Conhecimentos sobre HTML/CSS/JS.
-3. Conhecimentos sobre conceitos de API.
-4. Conhecimentos gerais sobre aplicações a estrutura utilizada.
-5. Familiaridade com versionadores de código (Git).
-6. Proatividade em buscar conhecimentos novos.
