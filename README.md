@@ -21,7 +21,7 @@ Após isso, em 2 abas diferentes do terminal, execute novamente nas pastas _"bac
 $ npm start
 ```
 
-Pronto, agora através da URL http://localhost:1234 você já pod navegar e efetuar os testes!
+Pronto, agora através da URL http://localhost:1234 você já pode navegar e efetuar os testes!
 
 ### Usuário para teste:
 
