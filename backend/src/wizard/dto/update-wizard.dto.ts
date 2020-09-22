@@ -14,7 +14,7 @@ export class UpdateWizard implements Readonly<UpdateWizard> {
   @IsDefined()
   @IsNotEmpty()
   @MinLength(3)
-  specialty: string;
+  speciality: string;
 
   @IsDefined()
   @IsBoolean()

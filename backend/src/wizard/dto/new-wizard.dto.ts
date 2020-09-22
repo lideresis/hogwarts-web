@@ -14,7 +14,7 @@ export class NewWizard implements Readonly<NewWizard> {
   @IsDefined()
   @IsNotEmpty()
   @MinLength(3)
-  specialty: string;
+  speciality: string;
 
   @IsDefined()
   @IsBoolean()

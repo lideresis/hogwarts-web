@@ -12,7 +12,7 @@ export class Wizard {
   age: number;
 
   @Column({ type: 'varchar', length: 50 })
-  specialty: string;
+  speciality: string;
 
   @Column({ type: 'boolean', default: true })
   is_active: boolean;
