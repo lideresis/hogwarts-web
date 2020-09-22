@@ -4,11 +4,13 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { paginate, Pagination } from 'nestjs-typeorm-paginate';
 
 import { NewWizard } from './dto/new-wizard.dto';
 import { UpdateWizard } from './dto/update-wizard.dto';
 
-import { Wizard } from './wizard.entity'
+import { Wizard } from './wizard.entity';
+import { PaginationParams } from '../types';
 
 @Injectable()
 export class WizardService {
@@ -23,8 +25,11 @@ export class WizardService {
     return this.repo.save(wizard);
   }
 
-  listWizards(): Promise<Wizard[]> {
-    return this.repo.find({ order: { created_at: 'DESC' } });
+  async listWizards(params: PaginationParams): Promise<Pagination<Wizard>> {
+    const queryBuilder = this.repo.createQueryBuilder('w');
+    queryBuilder.orderBy('w.' + params.orderBy, params.orderType);
+ 
+    return paginate<Wizard>(queryBuilder, {page: params.page, limit: params.limit});
   }
 
   async getWizard(id: string): Promise<Wizard> {

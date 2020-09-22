@@ -6,6 +6,7 @@ import {
   Body,
   Get,
   Param,
+  Query,
   UseInterceptors,
   ClassSerializerInterceptor,
   Put,
@@ -19,6 +20,8 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { Wizard } from './wizard.entity';
 import { NewWizard } from './dto/new-wizard.dto';
 import { UpdateWizard } from './dto/update-wizard.dto';
+import { Pagination } from 'nestjs-typeorm-paginate';
+import { OrderType } from 'src/types';
 
 @Controller('wizard')
 //@UseGuards(JwtAuthGuard)
@@ -33,13 +36,21 @@ export class WizardController {
   }
 
   @Get()
-  listTodo(): Promise<Wizard[]> {
-    return this.wizardService.listWizards();
+  async listWizards(
+    @Query('page') page = 1, 
+    @Query('limit') limit = 10,
+    @Query('orderBy') orderBy = "created_at",
+    @Query('orderType') orderType = OrderType.DESC
+  ): Promise<Pagination<Wizard>> {
+    return this.wizardService.listWizards({
+      page, limit, orderBy, orderType
+    }
+    );
   }
 
   @Get(':id')
   @UseInterceptors(ClassSerializerInterceptor)
-  async getTodo(
+  async getWizard(
     @Param('id') id: string
   ): Promise<Wizard> {
     const wizard = await this.wizardService.getWizard(id);
@@ -49,7 +60,7 @@ export class WizardController {
 
   @Put(':id')
   @UseInterceptors(ClassSerializerInterceptor)
-  async updateTodo(
+  async updateWizard(
     @Param('id') id: string,
     @Body() updates: UpdateWizard
   ): Promise<Wizard> {
@@ -60,7 +71,7 @@ export class WizardController {
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  async removeTodo(
+  async removeWizard(
     @Param('id') id: string,
   ): Promise<Wizard> {
     const wizard = await this.wizardService.getWizard(id);
