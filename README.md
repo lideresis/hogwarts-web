@@ -27,6 +27,10 @@ A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidat
   npm start
 ```
 
+**Credenciais de acesso:**
+login: dumbledore@hogwarts.school
+senha: dumbledore
+
 ## Instruções de entrega do desafio
 
 1. Faça um fork deste projeto para sua conta do github (crie uma se você não possuir).
