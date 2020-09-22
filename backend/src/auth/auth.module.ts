@@ -15,7 +15,7 @@ import { AuthController } from './auth.controller';
     JwtModule.register({
       secret: configService.appKey,
       signOptions: {
-        expiresIn: '1d',
+        expiresIn: '1y',
         algorithm: 'HS384',
       },
       verifyOptions: {

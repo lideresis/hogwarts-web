@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
+
 import { Container, Brand, LoginButton } from './styles'
 import { AuthUser } from '../../types/auth'
+import { login } from '../../services/auth';
+import Api from '../../Api';
+import MessageBox from '../../components/MessageBox';
+import { MessageType } from '../../types/site';
 
 const LoginPage = () => {
   const [ authUser, setAuthUser ] = useState<AuthUser>({} as AuthUser);
+  const [ error, setError ] = useState<string | undefined>();
 
   const handleChange = (e: any) => {
     setAuthUser({
@@ -12,20 +19,34 @@ const LoginPage = () => {
     });
   };
 
+  let redirect = useHistory();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    Api.login(authUser).then((response) => {
+      login(response.data.token);
+      redirect.push("/");
+    }).catch((err) => {
+      setError("Credenciais incorretas!")
+    })
+  }
+
   return (
     <Container>
       <Brand>
         <img src="/assets/imgs/logo-hogwarts.png" alt="Hogwarts School"/>
         <h1>Hogwarts School</h1>
       </Brand>
-      <form className="form-style">
+      {error ? <MessageBox message={error} type={MessageType.ALERT} /> : ( null )}
+      <form className="form-style" onSubmit={handleSubmit}>
         <div className="input-group">
           <label>Login</label>
-          <input name="email" type="email" value={authUser.email} onChange={handleChange}/>
+          <input name="username" type="email" onChange={handleChange}/>
         </div>
         <div className="input-group">
           <label>Senha</label>
-          <input name="password" type="password" value={authUser.password} onChange={handleChange}/>
+          <input name="password" type="password" onChange={handleChange}/>
         </div>
 
         <div className="button-group-centered">

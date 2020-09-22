@@ -24,7 +24,7 @@ import { Pagination } from 'nestjs-typeorm-paginate';
 import { OrderType } from 'src/types';
 
 @Controller('wizard')
-//@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard)
 export class WizardController {
   constructor(private readonly wizardService: WizardService) {}
 

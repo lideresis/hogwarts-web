@@ -26,7 +26,7 @@ import { User } from './user.entity';
 import { OrderType } from 'src/types';
 
 @Controller('users')
-//@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

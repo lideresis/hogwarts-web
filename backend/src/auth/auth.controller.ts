@@ -30,14 +30,6 @@ export class AuthController {
       user,
       token,
     });
-
-    resp.setHeader('Authorization', `Bearer ${token}`);
-    resp.cookie('token', token, {
-      httpOnly: true,
-      signed: true,
-      sameSite: 'strict',
-      secure: process.env.NODE_ENV === 'production',
-    });
     return resp;
   }
 

@@ -4,10 +4,19 @@ import { AuthUser }from './types/auth';
 import { PaginationParams } from './types/pagination';
 import { PostWizard, UpdateWizard } from './types/wizard';
 import { PostUser } from './types/user';
+import { getToken } from "./services/auth";
 
 export const AXIOS = axios.create({
   baseURL: "http://localhost:3005/",
 
+});
+
+AXIOS.interceptors.request.use(async config => {
+  const token = getToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
 });
 
 const endpoints = {
