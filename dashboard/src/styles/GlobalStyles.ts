@@ -157,6 +157,10 @@ export default createGlobalStyle`
     background-color: #fff!important;
 }
 
+.form-style {
+  max-width: 42em;
+}
+
 .form-style input::placeholder {
     color:#888;
 }
@@ -265,6 +269,7 @@ export default createGlobalStyle`
 
 .custom-table .minus {
     width: 1%;
+    white-space: nowrap;
 }
 
 .custom-table table {
@@ -334,7 +339,7 @@ export default createGlobalStyle`
 }
 
 .custom-table [class^="button"] {
-    padding:.2em .2em;
+    padding:.45em .2em .2em .2em;
     margin: 0 .15em;
     background-color:#f9f9f9;
     border:1px solid #e9e9e9;
@@ -350,4 +355,49 @@ export default createGlobalStyle`
 .custom-table .button-red {
     color:#f44336;
 }
+
+/*--------------------------------------------------------------
+## Buttons
+--------------------------------------------------------------*/
+[class^="button"] {
+    color:#fff;
+    display:inline-block;
+    font-size:16px;
+    min-width:2.68em;
+    padding:.5em .7em;
+    margin-right: 1em;
+    text-align:center;
+    text-decoration:none;
+    transition:.1s;
+    cursor:pointer;
+    user-select: none;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+
+[class^="button"]:hover { text-decoration:none; }
+[class^="button"]:disabled {
+    opacity:.4;
+    cursor:context-menu;
+}
+
+.button { background-color:#f9f9f9; border:1px solid #f1f1f1; color:#616161!important; }
+.button:hover { background-color:#e9e9e9!important; }
+.button-disabled { background-color:#eeeeee; border:1px solid #ccc; color:#616161!important; opacity:.4; cursor:context-menu; }
+
+.button-primary { background-color:#f9f9f9; border:1px solid #f1f1f1; color:#616161!important; }
+.button-primary:hover { background-color:var(--primary-color)!important; border:1px solid var(--primary-color)!important; color:#fff!important; }
+
+.button-secondary { background-color:#616161; border:1px solid #616161; }
+.button-secondary:hover { background-color:#757575!important; border:1px solid #757575!important; color:#fff!important; }
+
+.button-green { background-color:#4caf50; border:1px solid #4caf50; }
+.button-green:hover { background-color:#66bb6a!important; border:1px solid #66bb6a!important; color:#fff!important; }
+
+.button-yellow { background-color:#ffcd28; border:1px solid #ffcd28; color:#423300!important; }
+.button-yellow:hover { background-color:#ffc107!important; border:1px solid #ffc107!important; color:#423300!important; }
+.button-yellow:disabled { color:#423300; }
+
+.button-red { background-color: #f44336; border:1px solid #f44336; }
+.button-red:hover { background-color:#ef5350!important; border:1px solid #ef5350!important; color:#fff!important; }
 `;

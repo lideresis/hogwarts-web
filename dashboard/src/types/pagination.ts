@@ -2,7 +2,12 @@ export type PaginationParams = {
   page: number,
   limit: number,
   orderBy: string,
-  orderType: "ASC" | "DESC" | string
+  orderType: OrderType
+}
+
+export enum OrderType {
+  ASC = "ASC",
+  DESC = "DESC"
 }
 
 export type PaginatedMeta = {
@@ -16,8 +21,15 @@ export type PaginatedMeta = {
 export type PaginationButtonType = {
   text: string,
   page: number,
-  status: "default" | "active" | "disabled"
+  status: ButtonStatus
 }
+
+export enum ButtonStatus {
+  DEFAULT = "default",
+  ACTIVE = "active",
+  DISABLED = "disabled"
+}
+
 export type PaginationButtons = {
   start: PaginationButtonType,
   first: PaginationButtonType,

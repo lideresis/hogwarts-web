@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { PaginationNav, PaginationWrapper, PaginationButton } from './styles';
-import { PaginatedMeta, PaginationButtonType, PaginationButtons, PaginationPages } from '../../types/pagination';
+import { PaginatedMeta, PaginationButtonType, PaginationButtons, PaginationPages, ButtonStatus } from '../../types/pagination';
 
 const Pagination = ({meta, page, setPage} : {meta: PaginatedMeta, page: number, setPage: Function}) => {
   const [ buttons, setButtons ] = useState<PaginationButtons>({} as PaginationButtons);
@@ -24,27 +24,27 @@ const Pagination = ({meta, page, setPage} : {meta: PaginatedMeta, page: number, 
         start: {
           text: '<',
           page: 1,
-          status: page > 1 ? 'default' : 'disabled'
+          status: page > 1 ? ButtonStatus.DEFAULT : ButtonStatus.DISABLED
         },
         first: {
           text: (pages.first).toString(),
           page: pages.first,
-          status: pages.first === +page ? 'active' : 'default'
+          status: pages.first === +page ? ButtonStatus.ACTIVE : ButtonStatus.DEFAULT
         },
         second: {
           text: (pages.second).toString(),
           page: pages.second,
-          status: pages.second === +page ? 'active' : 'default'
+          status: pages.second === +page ? ButtonStatus.ACTIVE : ButtonStatus.DEFAULT
         },
         third: {
           text: (pages.third).toString(),
           page: pages.third,
-          status: pages.third === +page ? 'active' : 'default'
+          status: pages.third === +page ? ButtonStatus.ACTIVE : ButtonStatus.DEFAULT
         },
         end: {
           text: '>',
           page: meta.totalPages,
-          status: page < meta.totalPages ? 'default' : 'disabled'
+          status: page < meta.totalPages ? ButtonStatus.DEFAULT : ButtonStatus.DISABLED
         }
       });
 

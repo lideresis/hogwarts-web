@@ -5,19 +5,22 @@ import MessageBox from '../MessageBox';
 import Pagination from '../Pagination';
 
 const Panel = (props: PanelProps) => {
+  const [ isMounted, setIsMounted ] = useState<boolean>(false);
   const [ page, setPage ] = useState<number>(1);
 
   useEffect(() => {
-    if (props.pagination) {
+    if (!isMounted && props.pagination) {
       setPage(props.pagination!.currentPage);
+      setIsMounted(true);
     }
-  }, [props.pagination])
+  }, [isMounted, props.pagination])
 
   useEffect(() => {
-    if (props.setParentPage && props.pagination && ( page !== props.pagination!.currentPage)) {
+    if (isMounted && props.setParentPage && props.pagination && ( page !== props.pagination!.currentPage)) {
       props.setParentPage(page);
+      setIsMounted(false);
     }
-  }, [props.setParentPage, page]);
+  }, [isMounted, props, page]);
 
   return (
     <PanelWrapper>
