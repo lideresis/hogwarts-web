@@ -64,6 +64,7 @@ const ListPanel = (props: PageState) => {
   const handleSorting = (field: string) => {
     setRequestWizards({
       ...requestWizards,
+      page: 1,
       orderBy: field,
       orderType: requestWizards.orderBy !== field || requestWizards.orderType === OrderType.ASC ? OrderType.DESC : OrderType.ASC 
     });
