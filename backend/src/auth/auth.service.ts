@@ -17,11 +17,11 @@ export class AuthService {
 
     try {
       user = await this.usersService.findOne({
-        where: { username: payload.sub },
+        where: { email: payload.sub },
       });
     } catch (error) {
       throw new UnauthorizedException(
-        `There isn't any user with username: ${payload.sub}`,
+        `There isn't any user with email: ${payload.sub}`,
       );
     }
     delete user.password;
@@ -29,20 +29,20 @@ export class AuthService {
     return user;
   }
 
-  async login(username: string, password: string): Promise<User> {
+  async login(email: string, password: string): Promise<User> {
     let user: User;
 
     try {
-      user = await this.usersService.findOne({ where: { username } });
+      user = await this.usersService.findOne({ where: { email } });
     } catch (err) {
       throw new UnauthorizedException(
-        `There isn't any user with username: ${username}`,
+        `There isn't any user with email: ${email}`,
       );
     }
 
     if (!(await user.checkPassword(password))) {
       throw new UnauthorizedException(
-        `Wrong password for user with username: ${username}`,
+        `Wrong password for user with email: ${email}`,
       );
     }
     delete user.password;
@@ -52,7 +52,7 @@ export class AuthService {
 
   signToken(user: User): string {
     const payload = {
-      sub: user.username,
+      sub: user.email,
     };
 
     return this.jwtService.sign(payload);

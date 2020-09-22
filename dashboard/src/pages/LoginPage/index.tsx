@@ -21,7 +21,7 @@ const LoginPage = () => {
       <form className="form-style">
         <div className="input-group">
           <label>Login</label>
-          <input name="username" type="text" value={authUser.username} onChange={handleChange}/>
+          <input name="email" type="email" value={authUser.email} onChange={handleChange}/>
         </div>
         <div className="input-group">
           <label>Senha</label>

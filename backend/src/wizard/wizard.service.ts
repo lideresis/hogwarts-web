@@ -10,7 +10,7 @@ import { NewWizard } from './dto/new-wizard.dto';
 import { UpdateWizard } from './dto/update-wizard.dto';
 
 import { Wizard } from './wizard.entity';
-import { PaginationParams } from '../types';
+import { PaginationParams } from '../types'; 
 
 @Injectable()
 export class WizardService {

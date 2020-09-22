@@ -16,13 +16,13 @@ export class IsUserAlreadyExist implements ValidatorConstraintInterface {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async validate(username: string): Promise<boolean> {
-    const user = await this.userRepository.findOne({ username });
+  async validate(email: string): Promise<boolean> {
+    const user = await this.userRepository.findOne({ email });
 
     return user === null || user === undefined;
   }
 
   defaultMessage(): string {
-    return 'The username «$value» is already register.';
+    return 'The email «$value» is already register.';
   }
 }

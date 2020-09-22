@@ -11,7 +11,7 @@ export class NewUser implements Readonly<NewUser> {
 
   @IsDefined()
   @Validate(IsUserAlreadyExist)
-  username: string;
+  email: string;
 
   @IsDefined()
   @IsNotEmpty()
@@ -23,7 +23,7 @@ export class NewUser implements Readonly<NewUser> {
 
     const it = new User();
     it.name = newUser.name;
-    it.username = newUser.username;
+    it.email = newUser.email;
     it.password = await bcrypt.hash(newUser.password, salt);
     it.created_at = new Date();
     it.updated_at = new Date();

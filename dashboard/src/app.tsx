@@ -7,6 +7,7 @@ import GlobalStyles from './styles/GlobalStyles';
 import LoginPage from './pages/LoginPage';
 import Home from './pages/Home';
 import WizardPage from './pages/WizardPage';
+import UserPage from './pages/UserPage';
 
 const App = () => {
     const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(true);
@@ -25,6 +26,11 @@ const App = () => {
                 exact
                 path="/wizard"
                 render={(props) => <WizardPage />}
+              />
+              <Route
+                exact
+                path="/user"
+                render={(props) => <UserPage />}
               />
             </Switch>
           </SiteTemplate>
