@@ -3,6 +3,30 @@
 
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
+## Requisitos para rodar o projeto
+1. NodeJs
+2. MySQL
+
+## Configuração do ambiente
+1. Clone o projeto para uma pasta de sua preferência.
+2. Crie uma nova tabela em seu banco de dados, chamada hogwarts.
+3. Renomeie o arquivo **/backend/.env.example** para, **.env**.
+4. Altere as variáveis de conexão com o banco de dados no arquivo **.env**(DB_HOST, DB_USERNAME, DB_PASSWORD).
+5. Abra o terminal, dentro da pasta do backend e execute os seguintes comandos em ordem:
+```shell
+  npm install
+  npm start
+```
+6. Em um novo terminal, dentro da pasta backend, execute o seguinte comando:
+```shell
+  npm typeorm:migration:run
+```
+7. Acesse a pasta do dashboard pelo terminal e execute os seguintes comandos em ordem:
+```shell
+  npm install
+  npm start
+```
+
 ## Instruções de entrega do desafio
 
 1. Faça um fork deste projeto para sua conta do github (crie uma se você não possuir).
