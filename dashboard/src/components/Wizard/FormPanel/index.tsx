@@ -24,7 +24,6 @@ const FormPanel = (props: PageState) => {
           speciality: wizard.speciality
         });
 
-        console.log(wizard)
       }).catch((err) => {
         console.log(err);
 
@@ -125,7 +124,7 @@ const FormPanel = (props: PageState) => {
         </div>
 
         <div className="input-group">
-          <label htmlFor="is_active"><input type="checkbox" name="is_active" id="is_active" defaultChecked={formData.is_active} onChange={handleChange} /> Ativo</label>
+          <label htmlFor="is_active"><input type="checkbox" name="is_active" id="is_active" checked={formData.is_active || false} onChange={handleChange} /> Ativo</label>
           
         </div>
 

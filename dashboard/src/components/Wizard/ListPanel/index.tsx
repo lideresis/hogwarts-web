@@ -52,7 +52,7 @@ const ListPanel = (props: PageState) => {
 
 
   // Set page action
-  const handleAction = (id: string, action: PageAction) => {
+  const handleAction = (action: PageAction, id?: string) => {
     props.setStatePageFunction({
       ...props,
       action: action,
@@ -74,37 +74,42 @@ const ListPanel = (props: PageState) => {
 
   return isMounted ? (
     <Panel { ...panelProps}>
-      {wizards ? (
-        <div className="custom-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Bruxo<OrderButton onClick={() => handleSorting("name")} order={requestWizards.orderBy === "name" ? requestWizards.orderType : undefined} /></th>
-                <th>Especialidade<OrderButton onClick={() => handleSorting("speciality")} order={requestWizards.orderBy === "speciality" ? requestWizards.orderType : undefined} /></th>
-                <th>Idade</th>
-                <th>Status</th>
-                <th>Ações</th>
-              </tr> 
-            </thead>
-            <tbody>
-              {wizards.items.map((item:Wizard, index:number) => (
-                <tr key={index}>
-                  <td>{item.name}</td>
-                  <td>{item.speciality}</td>
-                  <td>{item.age} anos</td>
-                  <td>{item.is_active ? 'Ativo' : 'Não ativo'}</td>
-                  <td className="minus">
-                    <button className="button-yellow" onClick={() => handleAction(item.id, PageAction.UPDATE)}><FaEdit size="18"/></button>
-                    <button className="button-red" onClick={() => handleAction(item.id, PageAction.DELETE)}><FaTrash size="18"/></button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <>
+        <div className="button-group">
+          <button className="button-primary" onClick={() => handleAction(PageAction.NEW)}>Inserir</button>
         </div>
-      ) : (
-        <p>Não existe nenhum bruxo cadastrado.</p>
-      )}
+        {wizards ? (
+          <div className="custom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Bruxo<OrderButton onClick={() => handleSorting("name")} order={requestWizards.orderBy === "name" ? requestWizards.orderType : undefined} /></th>
+                  <th>Especialidade<OrderButton onClick={() => handleSorting("speciality")} order={requestWizards.orderBy === "speciality" ? requestWizards.orderType : undefined} /></th>
+                  <th>Idade</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr> 
+              </thead>
+              <tbody>
+                {wizards.items.map((item:Wizard, index:number) => (
+                  <tr key={index}>
+                    <td>{item.name}</td>
+                    <td>{item.speciality}</td>
+                    <td>{item.age} anos</td>
+                    <td>{item.is_active ? 'Ativo' : 'Não ativo'}</td>
+                    <td className="minus">
+                      <button className="button-yellow" onClick={() => handleAction(PageAction.UPDATE, item.id)}><FaEdit size="18"/></button>
+                      <button className="button-red" onClick={() => handleAction(PageAction.DELETE, item.id)}><FaTrash size="18"/></button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p>Não existe nenhum bruxo cadastrado.</p>
+        )}
+      </>
     </Panel>
   ) : ( null );
 };
