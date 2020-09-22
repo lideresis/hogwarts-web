@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Aside } from './styles'
 
-const SiteAside = () => {
+const SiteAside = ({open}: {open:boolean}) => {
 
   return (
-    <Aside>
+    <Aside data-open={open}>
       <nav>
         <ul className="menu">
           <li>
-            <button>Meus Bruxos</button>
+            <Link to="/wizard" title="Meus Bruxos" >Meus Bruxos</Link>
           </li>
           <li>
-            <button>Usuários</button>
+            <Link to="/user" title="Usuários" >Usuários</Link>
           </li>
         </ul>
       </nav>

@@ -9,6 +9,8 @@ export const Header = styled.header`
   padding: .7em 3em;
   border-bottom: 1px solid #f1f1f1;
   align-items: center;
+  box-sizing: border-box;
+  max-width: 100vw;
 `;
 
 export const Logo = styled.img`

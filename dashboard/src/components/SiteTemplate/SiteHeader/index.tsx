@@ -1,14 +1,17 @@
 import React from 'react';
 import { Header, Logo, HeaderButton } from './styles';
-import { FaBars, FaCog } from 'react-icons/fa'
+import { FaBars, FaDoorOpen } from 'react-icons/fa'
+import { logout } from '../../../services/auth';
+import { useHistory } from 'react-router-dom';
 
-const SiteHeader: React.FC = () => {
+const SiteHeader = ({menuStatus, closeMenuFunc} : {menuStatus: boolean, closeMenuFunc:React.Dispatch<React.SetStateAction<boolean>> }) => {
+  let redirect = useHistory();
 
   return (
     <Header>
       <Logo src="/assets/imgs/logo-hogwarts.png" alt="Hogwarts School"/>
-      <HeaderButton><FaBars/></HeaderButton>
-      <HeaderButton className="options-button"><FaCog/></HeaderButton>
+      <HeaderButton onClick={() => closeMenuFunc(!menuStatus)}><FaBars/></HeaderButton>
+      <HeaderButton onClick={() => {logout(); redirect.push("/login");}} className="options-button"><FaDoorOpen/></HeaderButton>
     </Header>
   );
 };
