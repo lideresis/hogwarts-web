@@ -1,50 +1,35 @@
 import React, { useState, useEffect } from 'react';
 
-import api from '../../Api';
-import { Container } from './styles';
-import { Wizard } from '../../types/wizard';
-import Panel from '../../components/Panel';
-
+import ListPanel from '../../components/Wizard/ListPanel';
+import FormPanel from '../../components/Wizard/FormPanel';
+import SinglePanel from '../../components/Wizard/SinglePanel';
+import { PageState, PageAction } from '../../types/site';
 
 const WizardPage = () => {
-  const [ wizards, setWizards ] = useState<Wizard[]>();
+  const [ pageState, setPageState ] = useState<PageState>({
+    title: "Meus bruxos",
+    action: PageAction.LIST,
+  } as PageState);
+  const [ isMounted, setIsMounted ] = useState<boolean>(false);
 
   useEffect(() => {
-    api.getWizards().then((response) => {
-      setWizards(response.data);
-    })
-  }, []);
-  
-  return (
-    <Panel>
-      {wizards ? (
-        <table className="custom-table">
-          <thead>
-            <tr>
-              <th>Bruxo</th>
-              <th>Especialidade</th>
-              <th>Idade</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr> 
-          </thead>
-          <tbody>
-            {wizards.map((item:Wizard, index:number) => (
-              <tr>
-                <td>{item.name}</td>
-                <td>{item.specialty}</td>
-                <td>{item.age} anos</td>
-                <td>{item.is_active ? 'Ativo' : 'Não ativo'}</td>
-                <td>ação</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>Não existe nenhum bruxo cadastrado.</p>
-      )}
-    </Panel>
-  );
+    if (!isMounted) {
+      setPageState({
+        ...pageState,
+        setStatePageFunction: setPageState
+      });
+
+      setIsMounted(true);
+    }
+  }, [isMounted, pageState]);
+
+  if (pageState.action === PageAction.NEW || pageState.action === PageAction.UPDATE) {
+    return <FormPanel {... pageState} />;
+  } else if (pageState.action === PageAction.SINGLE || pageState.action === PageAction.DELETE) {
+    return <SinglePanel {... pageState} />;
+  } else {
+    return <ListPanel {... pageState} />;
+  }
 };
 
 export default WizardPage;
