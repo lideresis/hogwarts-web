@@ -20,12 +20,9 @@ O professor Dumbledore está precisando de um aplicativo para cadastrar todos os
 Você está disposto a ajudar?
 
 Desenhamos as telas para você se basear, este aplicativo deve ser desenvolvido utilizando as seguintes tecnologias:
-#### Para o Front-End:
-- React JS
-#### Para o Back-end:
-- Banco de Dados: Podes utilizar qualquer um de sua preferência;
-- Utilizar ORM;
-- API Rest construída em NodeJS, utilizando algum framework: NestJS, ExpressJS, Adonis, etc.
+- PHP 7+ puro ou utilizando alguns dos frameworks (Slim 2+, Laravel 5+ ou CodeIgniter 3+)
+- MySQL para o Banco de Dados.
+- Front-end pode ser com bootstrap.
 
 ## Tela de Login
 
@@ -51,7 +48,6 @@ Pontualmente estaremos avaliando:
 
 1. Entendimento sobre a linguagem utilizada.
 2. Conhecimentos sobre HTML/CSS/JS.
-3. Conhecimentos sobre conceitos de API.
-4. Conhecimentos gerais sobre aplicações a estrutura utilizada.
-5. Familiaridade com versionadores de código (Git).
-6. Proatividade em buscar conhecimentos novos.
+3. Conhecimentos gerais sobre aplicações a estrutura utilizada.
+4. Familiaridade com versionadores de código (Git).
+5. Proatividade em buscar conhecimentos novos.
