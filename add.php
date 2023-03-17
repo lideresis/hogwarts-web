@@ -29,5 +29,5 @@
     
     <br><br>
 
-    <input type="submit" value="Adicionar"/>
+    <input type="submit" value="Salvar"/>
 </form>

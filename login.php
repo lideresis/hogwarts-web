@@ -1,6 +1,5 @@
 <?php
 // Inicia a sessão do usuário
-session_start();
 require 'config.php';
 
 // Verifica se o formulário de login foi enviado
@@ -11,18 +10,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verifica se o email e a senha são válidos
     $sql = $pdo->prepare("SELECT * FROM professores WHERE email = :email AND senha = :senha");
-    $sql->execute(['email' => $email, 'senha' => $senha]);
+    $sql->execute(['email' => $email, 'senha' => $senha]);    
     $res = $sql->fetch();
-
     if ($res) {
         // Email e senha válidos, inicia a sessão
-        $_SESSION["usuario"] = $email;
-        header("Location: list.php");
+        $_SESSION['usuario'] = $email;
+        session_start();
+        $_SESSION['user_login']='ok';
+        header('Location: list.php');
     } else {
         // Email e/ou senha inválidos
-        echo "E-mail e/ou senha inválido(s).";
+        //echo "E-mail e/ou senha inválido(s).";
+        
+        header("Location: index.php");
     }
 }
+
 ?>
-<br>
-<a href="index.php" class="btn btn-primary">Voltar</a>

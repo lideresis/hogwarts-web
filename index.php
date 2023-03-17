@@ -3,24 +3,32 @@
 
 <head>
     <title>Hogwarts School</title>
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 
-<body>
-    <?php
-    require 'config.php';
+<body class="body">
 
-    ?>
-    <h1>Hogwarts School</h1>
-    <form action="login.php" method="POST">
-        <label>Login:</label>
-        <input type="text" name="email"><br><br>
+    <?php require 'config.php'; ?>
 
-        <label>Senha:</label>
-        <input type="password" name="senha"><br>
-        <p>
-            <button type="submit">Entrar</button>
-        </p>
-    </form>
+    <div class="box_login">
+        <div class="logo"></div>
+
+        <h1>Hogwarts School</h1>
+        <div class="form">
+            <form action="login.php" method="POST">
+                <div class="box-form">
+                    <label>Login</label>
+                    <input type="text" name="email"><br><br>
+
+                    <label>Senha</label>
+                    <input type="password" name="senha"><br>
+                </div>
+                <p>
+                    <button type="submit">Entrar</button>
+                </p>
+            </form>
+        </div>
+    </div>
 </body>
 
-</html> 
+</html>
