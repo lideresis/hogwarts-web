@@ -17,10 +17,10 @@
         <div class="form">
             <form action="login.php" method="POST">
                 <div class="box-form">
-                    <label>Login</label>
+                    <label>Login</label><br>
                     <input type="text" name="email"><br><br>
 
-                    <label>Senha</label>
+                    <label>Senha</label><br>
                     <input type="password" name="senha"><br>
                 </div>
                 <p>
