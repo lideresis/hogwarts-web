@@ -12,20 +12,19 @@
 
     <div class="box_login">
         <div class="logo"></div>
-
-        <h1>Hogwarts School</h1>
         <div class="form">
+            <h3>Hogwarts School</h3>
             <form action="login.php" method="POST">
-                <div class="box-form">
-                    <label>Login</label><br>
+                <div class="formulario">
+                    <label class="label1">Login</label><br>
                     <input type="text" name="email"><br><br>
 
-                    <label>Senha</label><br>
+                    <label class="label2">Senha</label><br>
                     <input type="password" name="senha"><br>
+                    <p>
+                        <button type="submit">Entrar</button>
+                    </p>
                 </div>
-                <p>
-                    <button type="submit">Entrar</button>
-                </p>
             </form>
         </div>
     </div>

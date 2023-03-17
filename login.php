@@ -16,8 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Email e senha válidos, inicia a sessão
         $_SESSION['usuario'] = $email;
         session_start();
-        $_SESSION['user_login']='ok';
-        header('Location: list.php');
     } else {
         // Email e/ou senha inválidos
         //echo "E-mail e/ou senha inválido(s).";

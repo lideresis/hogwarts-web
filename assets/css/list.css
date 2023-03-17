@@ -1,0 +1,51 @@
+/* Estilos para o menu */
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: left;
+}
+
+/* Estilos para o ícone de engrenagem */
+.bi-gear::before {
+    content: "\f134";
+}
+
+/* Remove sublinhado nos links do menu */
+.navbar-nav .nav-link {
+    text-decoration: none;
+}
+
+/* Alinha os itens do menu à direita */
+.navbar-nav {
+    margin-left: auto;
+}
+
+/* Estilos para a opção de sair */
+.dropdown-menu {
+    padding: 0.5rem 0;
+    right: 0;
+    left: auto;
+    width: 180px;
+}
+
+.dropdown-menu::before {
+    content: '';
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #f0f0f0 transparent;
+    position: absolute;
+    top: -8px;
+    right: 16px;
+}
+
+.dropdown-item {
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
