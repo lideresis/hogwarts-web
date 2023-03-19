@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/list.css">
-  <title>Minha Página</title>
+  <title>List</title>
 
   <!--Import Bootstrap CSS-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-4+4q3Lv/i9pdFyEBlJx+j6UuSNYU+g6ZJk6Uw0njkCCV7cGJNYyP2dCn0W8LPvIGk/+mI2PQ2zzmH5J5v5Gcw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,42 +27,65 @@
 </head>
 
 <body>
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <div class="menu">
 
-  <div class="container my-4">
+    </div>
+    <div class="gear">
+      <span>Usuário</span>
+      <a href="#">Sair</a>
+    </div>
+  </header>
+  <div class="geral">
 
-    <a href="add.php" class="btn btn-primary">ADICIONAR USUÁRIO</a>
+    <div class="meus-bruxos">
+      <p>Meus bruxos - Listagem</p>
+    </div>
 
-    <table class="table table-striped table-hover my-4">
-      <thead>
-        <tr>
-          <th>BRUXO</th>
-          <th>ESPECIALIDADE</th>
-          <th>IDADE</th>
-          <th>STATUS</th>
-          <th>AÇÃO</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($lista as $usuario) : ?>
-          <tr>
-            <td><?= $usuario['nome']; ?></td>
-            <td><?= $usuario['especialidade']; ?></td>
-            <td><?= $usuario['idade']; ?></td>
-            <td><?= $usuario['status'] == 1 ? 'ativo' : 'inativo'; ?></td>
-            <td>
-              <a href="editar.php?id=<?= $usuario['id']; ?>" class="btn btn-warning btn-sm">EDITAR</a>
-              <a href="excluir.php?id=<?= $usuario['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">EXCLUIR</a>
-            </td>
+    <div class="menu-lateral-esquerdo">
+
+      <button class="botoes"><a href="list.php">Meus Bruxos</a></button>
+      <button class="botoes"><a href="add.php">Usuário</a></button>
+
+    </div>
+
+    <div class="container">
+
+      <table class="list">
+        <thead>
+          <tr class="titulos">
+            <th class="largura1">BRUXO</th>
+            <th class="largura2">ESPECIALIDADE</th>
+            <th class="largura3">IDADE</th>
+            <th class="largura4">STATUS</th>
+            <th class="largura5">AÇÃO</th>
           </tr>
-        <?php endforeach ?>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <?php foreach ($lista as $usuario) : ?>
+            <tr>
+              <td><?= $usuario['nome']; ?></td>
+              <td><?= $usuario['especialidade']; ?></td>
+              <td><?= $usuario['idade']; ?></td>
+              <td><?= $usuario['status'] == 1 ? 'ativo' : 'inativo'; ?></td>
+              <td>
+                <a href="editar.php?id=<?= $usuario['id']; ?>" class="button-editar">EDITAR</a>
+                <a href="excluir.php?id=<?= $usuario['id']; ?>" class="button-excluir" onclick="return confirm('Tem certeza que deseja excluir?')">EXCLUIR</a>
+              </td>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
 
+    </div>
   </div>
 
-  <!--Import Bootstrap JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-P+b9eCgYvq3AUKGMGr+H2zD2LDrRv0JbL5l5ue5B9XUv7VWb8oU2j6Ulk4J+Y7CwoIz8Kj7wSbOhk5P5o5c5aA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <div class="barra-inferior">
 
+  </div>
 </body>
 
 </html>
