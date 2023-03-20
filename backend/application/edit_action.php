@@ -7,7 +7,7 @@ $especialidade = filter_input(INPUT_POST, 'especialidade');
 $idade = filter_input(INPUT_POST, 'idade');
 $status = filter_input(INPUT_POST, 'status');
 
-if($id && $nome){
+if ($id && $nome) {
 
     $sql = $pdo->prepare("UPDATE alunos SET nome = :nome, especialidade = :especialidade, idade = :idade, status = :status WHERE id = :id");
     $sql->bindValue(':id', $id);
@@ -19,7 +19,7 @@ if($id && $nome){
 
     header("Location: list.php");
     exit;
-}else{
-    header("Location: editar.php");
+} else {
+    header("Location: edit.php");
     exit;
 }

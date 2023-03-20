@@ -30,6 +30,20 @@ body {
     margin-left: auto;
 }
 
+.edit-user {
+    height: 40px;
+    width: (100%);
+    background-color: blueviolet;
+    margin-left: auto;
+    padding-left: auto;
+    padding-right: (50vw);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+
+
 /*menu lateral esquerdo*/
 
 .menu-lateral-esquerdo {
@@ -42,31 +56,14 @@ body {
     align-items: center;
 }
 
-.menu-lateral-esquerdo .botoes {}
-
 /*lista*/
 
-.lista {
+.edit-form {
     margin-left: 130px;
     margin-top: -500px;
 }
 
-.lista .titulos {
-    text-align: left;
-}
 
-.meus-bruxos {
-    height: 40px;
-    width: (100%);
-    background-color: blueviolet;
-    margin-left: auto;
-    padding-left: auto;
-    padding-right: (50vw);
-    display: flex;
-    align-items: center;
-    justify-content: left;
-
-}
 
 /*barra inferior*/
 

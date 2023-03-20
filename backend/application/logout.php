@@ -5,4 +5,4 @@ session_destroy();
 header('Location: ../../index.php');
 exit;
 ?>
-<button type="submit">Entrar</button>
+<button type="submit">Exit</button>

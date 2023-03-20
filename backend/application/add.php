@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/add.css">
+    <title>Add</title>
 </head>
 
 <body>
@@ -19,42 +20,57 @@
         </div>
         <div class="gear">
             <span>Usuário</span>
-            <a href="#">Sair</a>
+            <a href="logout.php">Exit</a>
         </div>
     </header>
 
-    <form method="POST" action="add_action.php">
-        <label class="nome">
-            Nome: <br>
-            <input type="text" name="nome" />
-        </label>
+    <div class="meus-bruxos">
+        <p>Meus bruxos - Formulário</p>
+    </div>
 
-        <br><br>
+    <div class="menu-lateral-esquerdo">
 
-        <label class="especialidade">
-            Especialidade: <br>
-            <input type="text" name="especialidade" />
-        </label>
+        <button><a href="list.php">Meus Bruxos</a></button>
+        <button><a href="add.php">Usuário</a></button>
 
-        <br><br>
+    </div>
 
-        <label class="idade">
-            Idade: <br>
-            <input type="int" name="idade" />
-        </label>
+    <div class="add-form">
 
-        <br><br>
+        <form method="POST" action="add_action.php">
+            <label class="nome">
+                Nome: <br>
+                <input type="text" name="nome" />
+            </label>
 
-        <label class="status">
-            Status: <br>
-            <input type="int" name="status" />
-        </label>
+            <br><br>
 
-        <br><br>
+            <label class="especialidade">
+                Especialidade: <br>
+                <input type="text" name="especialidade" />
+            </label>
 
-        <input type="submit" value="Salvar" />
-    </form>
+            <br><br>
+
+            <label class="idade">
+                Idade: <br>
+                <input type="int" name="idade" />
+            </label>
+
+            <br><br>
+
+            <label class="status">
+                Status: <br>
+                <input type="int" name="status" />
+            </label>
+
+            <br><br>
+
+            <input type="submit" value="Salvar" />
+            <button><a href="list.php">Cancelar</a></button>
+        </form>
+
+    </div>
 </body>
 
 </html>
-<

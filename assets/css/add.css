@@ -30,43 +30,6 @@ body {
     margin-left: auto;
 }
 
-/*menu lateral esquerdo*/
-
-.menu-lateral-esquerdo {
-    height: 500px;
-    width: 120px;
-    background-color: red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu-lateral-esquerdo{
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 5px;
-    color: #fff;
-    background-color: #666;
-    border: none;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color;
-}
-
-/*lista*/
-
-.lista {
-    margin-left: 130px;
-    margin-top: -500px;
-}
-
-.lista .titulos {
-    text-align: left;
-}
-
 .meus-bruxos {
     height: 40px;
     width: (100%);
@@ -79,6 +42,28 @@ body {
     justify-content: left;
 
 }
+
+
+/*menu lateral esquerdo*/
+
+.menu-lateral-esquerdo {
+    height: 500px;
+    width: 120px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*lista*/
+
+.add-form {
+    margin-left: 130px;
+    margin-top: -500px;
+}
+
+
 
 /*barra inferior*/
 

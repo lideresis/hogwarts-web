@@ -36,7 +36,7 @@
     </div>
     <div class="gear">
       <span>Usuário</span>
-      <a href="logout.php">Sair</a>
+      <a href="logout.php">Exit</a>
     </div>
   </header>
   <div class="geral">
@@ -57,11 +57,11 @@
       <table class="lista">
         <thead>
           <tr class="titulos">
-            <th class="largura1">BRUXO</th>
-            <th class="largura2">ESPECIALIDADE</th>
-            <th class="largura3">IDADE</th>
-            <th class="largura4">STATUS</th>
-            <th class="largura5">AÇÃO</th>
+            <th class="width1">BRUXO</th>
+            <th class="width2">ESPECIALIDADE</th>
+            <th class="width3">IDADE</th>
+            <th class="width4">STATUS</th>
+            <th class="width5">AÇÃO</th>
           </tr>
         </thead>
         <tbody>
@@ -72,8 +72,8 @@
               <td><?= $usuario['idade']; ?></td>
               <td><?= $usuario['status'] == 1 ? 'ativo' : 'inativo'; ?></td>
               <td>
-                <a href="editar.php?id=<?= $usuario['id']; ?>" class="button-editar">EDITAR</a>
-                <a href="excluir.php?id=<?= $usuario['id']; ?>" class="button-excluir" onclick="return confirm('Tem certeza que deseja excluir?')">EXCLUIR</a>
+                <a href="edit.php?id=<?= $usuario['id']; ?>" class="button-editar">EDITAR</a>
+                <a href="delete.php?id=<?= $usuario['id']; ?>" class="button-excluir" onclick="return confirm('Tem certeza que deseja excluir?')">EXCLUIR</a>
               </td>
             </tr>
           <?php endforeach ?>
