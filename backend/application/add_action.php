@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require '../core/config.php';
 
 $nome = filter_input(INPUT_POST, 'nome');
 $especialidade = filter_input(INPUT_POST, 'especialidade');

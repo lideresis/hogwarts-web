@@ -4,25 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<header class=" header">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/add.css">
 </head>
 
 <body>
 
-    div class="logo">
-    <img src="logo.png" alt="Logo">
-    </div>
-    <div class="menu">
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="menu">
 
-    </div>
-    <div class="gear">
-        <span>Usuário</span>
-        <a href="#">Sair</a>
-    </div>
-    </header>, initial-scale=1.0">
-    <title>Document</title>
-    h1>Adicionar Usuário</h1>
+        </div>
+        <div class="gear">
+            <span>Usuário</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
 
     <form method="POST" action="add_action.php">
         <label class="nome">

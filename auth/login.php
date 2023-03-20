@@ -1,6 +1,6 @@
 <?php
 // Inicia a sessão do usuário
-require 'config.php';
+require ('../backend/core/config.php');
 
 // Verifica se o formulário de login foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Email e senha válidos, inicia a sessão
         $_SESSION['usuario'] = $email;
         session_start();
+        header ('Location: ../backend/application/list.php');
     } else {
         // Email e/ou senha inválidos
         //echo "E-mail e/ou senha inválido(s).";

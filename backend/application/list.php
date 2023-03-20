@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/list.css">
+  <link rel="stylesheet" href="../../assets/css/list.css">
   <title>List</title>
 
   <!--Import Bootstrap CSS-->
@@ -15,7 +15,7 @@
 
   <?php
   session_start();
-  require 'config.php';
+  require '../core/config.php';
 
   $lista = [];
   $sql = $pdo->query("SELECT * FROM alunos");
@@ -36,7 +36,7 @@
     </div>
     <div class="gear">
       <span>Usuário</span>
-      <a href="#">Sair</a>
+      <a href="logout.php">Sair</a>
     </div>
   </header>
   <div class="geral">
@@ -47,14 +47,14 @@
 
     <div class="menu-lateral-esquerdo">
 
-      <button class="botoes"><a href="list.php">Meus Bruxos</a></button>
-      <button class="botoes"><a href="add.php">Usuário</a></button>
+      <button><a href="list.php">Meus Bruxos</a></button>
+      <button><a href="add.php">Usuário</a></button>
 
     </div>
 
     <div class="container">
 
-      <table class="list">
+      <table class="lista">
         <thead>
           <tr class="titulos">
             <th class="largura1">BRUXO</th>
@@ -83,9 +83,7 @@
     </div>
   </div>
 
-  <div class="barra-inferior">
-
-  </div>
+  <div class="barra-inferior"></div>
 </body>
 
 </html>

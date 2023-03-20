@@ -40,27 +40,28 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}   
+}
 
-.menu-lateral-esquerdo .botoes{}
+.menu-lateral-esquerdo .botoes {}
 
 /*lista*/
 
-.list{
-    margin-left: 200px;
+.lista {
+    margin-left: 130px;
     margin-top: -500px;
 }
-.list .titulos{
+
+.lista .titulos {
     text-align: left;
 }
 
 .meus-bruxos {
-    margin-left: 200px;
     height: 40px;
-    width: 220px;
+    width: (100%);
     background-color: blueviolet;
-    padding-left: 10px;
-    padding-right: (100% - 120px);
+    margin-left: auto;
+    padding-left: auto;
+    padding-right: (50vw);
     display: flex;
     align-items: center;
     justify-content: left;
@@ -70,9 +71,7 @@ body {
 /*barra inferior*/
 
 barra-inferior {
-    display: flex;
-    justify-content: space-between;
     background-color: aquamarine;
-    align-items: center;
-    padding: 20px;
+
+    padding-right: 200px;
 }

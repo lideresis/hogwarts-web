@@ -15,7 +15,7 @@ body {
     justify-content: space-between;
     background-color: aquamarine;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 
@@ -33,44 +33,57 @@ body {
 /*menu lateral esquerdo*/
 
 .menu-lateral-esquerdo {
-    position: fixed;
-
-    height: 100%;
-    width: 100px;
-    background-color: rosybrown;
+    height: 500px;
+    width: 120px;
+    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.botao-usuario a {
-    color: #333;
+.menu-lateral-esquerdo{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 5px;
+    color: #fff;
+    background-color: #666;
+    border: none;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color;
 }
-
-.botao-usuario:hover {
-    background-color: #f2f2f2;
-}
-
 
 /*lista*/
 
-.list{
-    margin-left: 100px;
+.lista {
+    margin-left: 130px;
+    margin-top: -500px;
 }
 
-p {
-    margin-bottom: auto;
-    margin-left: 20%;
+.lista .titulos {
+    text-align: left;
+}
+
+.meus-bruxos {
+    height: 40px;
+    width: (100%);
+    background-color: blueviolet;
+    margin-left: auto;
+    padding-left: auto;
+    padding-right: (50vw);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
 }
 
 /*barra inferior*/
 
 barra-inferior {
-    display: flex;
-    justify-content: space-between;
     background-color: aquamarine;
-    align-items: center;
-    padding: 20px;
+
+    padding-right: 200px;
 }

@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require '../core/config.php';
 
 $info = []; //contem infos do usuario
 $id = filter_input(INPUT_GET, 'id');
@@ -12,7 +12,7 @@ if($id){
     if($sql->rowCount() > 0){
         $info = $sql->fetch(PDO::FETCH_ASSOC);
     }else{
-        header("Location: index.php");
+        header("Location: ../../index.php");
         exit;
     }
 
