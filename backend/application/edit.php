@@ -56,7 +56,7 @@
     <div class="menu-lateral-esquerdo">
 
         <button><a href="list.php">Meus Bruxos</a></button>
-        <button><a href="add.php">Usuário</a></button>
+        <button><a href="add.php">Adicionar Usuário</a></button>
 
     </div>
 
