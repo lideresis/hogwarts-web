@@ -1,4 +1,4 @@
-#Como fazer login:
+Como fazer login:
 Email: dumbledore@hogwarts.school
 Senha: 1234
 Os mesmos se encontram no banco de dados "hogwartsweb" na tabela "professores"
