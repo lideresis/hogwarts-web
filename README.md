@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 # Como fazer login:
 Email: dumbledore@hogwarts.school
 Senha: 1234
 Os mesmos se encontram no banco de dados "hogwartsweb" na tabela "professores".
 
-
-=======
->>>>>>> 64d3af864d84ccfa776cedd5c2a08bbbeb5d0afb
 # Desafio de programação - Hogwarts
 
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
